@@ -1,33 +1,34 @@
 class Square
 {
   color colour;
-  PVector origin;
+  PVector position;
   
   Square()
   {
-    this(color(0,0,0), 0, 0);
+    this(0, 0, color(0,0,0)); // Constructor Chaining
   }
   
-  Square(color colour, float x, float y)
+  Square(float x, float y, color colour)
   {
+    position = new PVector(x, y);
     this.colour = colour;
-    this.origin = origin;
-    origin = new PVector(x, y);
   }
   
   void display(boolean high)
   {
     float dim = 0;
-    if(high) {
+    if (high)
+    {
       dim = 1;
     }
-    else {
+    else
+    {
       dim = 0.5f;
-    }*/
+    }
+    stroke(red(colour) * dim, green(colour) * dim, blue(colour) * dim);
+    fill(red(colour) * dim, green(colour) * dim, blue(colour) * dim);
     
-    stroke(red(colour) * dim, blue(colour) * dim, green(colour) * dim);
-    fill(red(colour) * dim, blue(colour) * dim, green(colour) * dim);
-    
-    rect(origin.x, origin.y, halfWidth, halfHeight);
+    rect(position.x, position.y, halfWidth, halfHeight);   
   }
+  
 }
